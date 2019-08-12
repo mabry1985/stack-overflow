@@ -26,6 +26,16 @@ class QuestionsController < ApplicationController
   render :show
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @current_user = User.find(session[:user_id])
+    @answer = Answer.find(params[:answer_id])
+    @answer.users.push(@current_user)
+    @answer.save
+    redirect_to question_path(@question)
+  end
+
+
   private
 
   def question_params

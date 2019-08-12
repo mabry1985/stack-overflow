@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_163957) do
+ActiveRecord::Schema.define(version: 2019_08_12_203228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_users", id: false, force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "user_id"
+    t.index ["answer_id"], name: "index_answer_users_on_answer_id"
+    t.index ["user_id"], name: "index_answer_users_on_user_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.string "author"
