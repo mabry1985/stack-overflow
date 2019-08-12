@@ -1,0 +1,14 @@
+<h1>you did it!</h1>
+
+<% if @questions.any? %>
+
+<ul>
+  <% @questions.each do |question| %>
+
+  <li><%= link_to question.header, question_path(question) %> </li>
+<% end %>
+</ul>
+<% else %>
+  <p>No muddafuggin questions yet</p>
+<% end %>
+<p><%= link_to "Add a new question", new_question_path %></p>

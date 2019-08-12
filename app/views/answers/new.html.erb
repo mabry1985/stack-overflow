@@ -1,0 +1,8 @@
+<h1><%= @question.header %></h1>
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label "Author" %>
+  <%= f.text_field :author %>
+  <%= f.label "Body" %>
+  <%= f.text_area :body %>
+  <%= f.submit "Submit Answer" %>
+<% end %>

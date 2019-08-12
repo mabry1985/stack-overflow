@@ -1,0 +1,9 @@
+<%= form_for @question do |f| %>
+  <%= f.label "Author" %>
+  <%= f.text_field :author %>
+  <%= f.label "Header" %>
+  <%= f.text_field :header %>
+  <%= f.label "Body" %>
+  <%= f.text_area :body %>
+  <%= f.submit "Submit Question" %>
+<% end %>

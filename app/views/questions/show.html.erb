@@ -1,0 +1,20 @@
+<h1><%= @question.header %></h1>
+<h3>-<%= @question.author %></h3>
+<p><%= @question.body %></p>
+
+
+<% if @question.answers.any? %>
+<ul>
+  <% @question.answers.each do |answer| %>
+  <li><%= answer.author %> says:<br>
+  <blockquote>"<%= answer.body %>"</blockquote>
+<p><span>Like</span><span>||</span><span>Dislike</span></p></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>Be the first to answer this question, no pressure</p>
+<% end %>
+
+
+
+<p><%= link_to "Add An Answer", new_question_answer_path(@question)%></p>
